@@ -1,3 +1,9 @@
+---
+noteId: "c3908d00702611ea83c605f6e1f11528"
+tags: []
+
+---
+
 # COVID-19 API
 
 
@@ -49,7 +55,7 @@ Getting just latest data:
 GET /latest
 ```
 ```json
-{ "confirmed": 418678, "deaths": 18625 }
+{ "confirmed": 418678, "deaths": 18625, "recovered": 35000}
 ```
 
 Getting update datetime:
