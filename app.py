@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request
 import json
 import os
 
@@ -14,7 +14,7 @@ def sensor():
     print("Scheduler is alive!")
 
 sched = BackgroundScheduler(daemon=True)
-sched.add_job(sensor,'interval',minutes=0.2)
+sched.add_job(sensor,'interval',minutes=10)
 sched.start()
 
 @app.route('/')
@@ -52,10 +52,6 @@ def updatedAt():
     with open('data.json') as f:
         d = json.load(f)
     return d['updatedAt']
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
