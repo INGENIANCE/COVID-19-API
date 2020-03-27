@@ -6,6 +6,7 @@ from refresh import update
 from apscheduler.schedulers.background import BackgroundScheduler
 
 port_ = 5000
+interval_minutes = 10
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def sensor():
     print("Scheduler is alive!")
 
 sched = BackgroundScheduler(daemon=True)
-sched.add_job(sensor,'interval',minutes=10)
+sched.add_job(sensor,'interval',minutes=interval_minutes)
 sched.start()
 
 @app.route('/')
