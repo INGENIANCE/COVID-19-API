@@ -52,6 +52,8 @@ GET /latest
 { "confirmed": 418678, "deaths": 18625 }
 ```
 
+Getting update datetime:
+
 ```http
 GET /updatedAt
 ```
